@@ -8,6 +8,13 @@
 
 import Foundation
 
+private struct WeatherInfo: Codable {
+    
+    let currently: RawCurrentWeatherForecast
+    let daily: RawDailyWeatherForecast
+    
+}
+
 class WeatherSerivce {
     //gather credentials
 //    https://api.darksky.net/forecast/0123456789abcdef9876543210fedcba/42.3601,-71.0589
@@ -15,9 +22,7 @@ class WeatherSerivce {
     private let longitude = -71.0589
     private let darkSkyScheme = "https"
     private let darkSkyHost = "api.darksky.net"
-    private let darkSkyKey = ""
     
-    //compose url
     private func darkSkyURL() -> URL? {
         var components = URLComponents()
         components.scheme = darkSkyScheme
@@ -31,7 +36,6 @@ class WeatherSerivce {
         return "/forecast/\(darkSkyKey)/\(latitude),\(longitude)"
     }
     
-    //pass url in to NetworkManager to fetch data
     func fetchCurrentWeatherForecast(completion: () -> ()) {
         guard let url = darkSkyURL() else {
             print("could not construct url")
@@ -40,7 +44,14 @@ class WeatherSerivce {
         
         NetworkManager.getDataFor(url: url) { (data) in
             //take data and parse into models
-            
+            do {
+                let weatherInfo = try JSONDecoder().decode(WeatherInfo.self, from: data)
+                let currentForecast = CurrentWeatherForecast(weatherInfo.currently)
+                print("currentForecast: \(currentForecast.temperature)")
+            }
+            catch {
+                print("could not parse data into models")
+            }
         }
     }
 }
