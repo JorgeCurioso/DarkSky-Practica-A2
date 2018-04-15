@@ -6,6 +6,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
+        <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -17,13 +18,41 @@
                     <view key="view" contentMode="scaleToFill" id="t5t-eG-YcU">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="GAv-sj-clW">
+                                <rect key="frame" x="0.0" y="20" width="375" height="447"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="85º" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dT4-Ux-db9">
+                                        <rect key="frame" x="0.0" y="0.0" width="375" height="447"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="120"/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstItem="dT4-Ux-db9" firstAttribute="top" secondItem="GAv-sj-clW" secondAttribute="top" id="SOI-iU-lbD"/>
+                                    <constraint firstAttribute="bottom" secondItem="dT4-Ux-db9" secondAttribute="bottom" id="Zi5-7L-1VM"/>
+                                    <constraint firstAttribute="trailing" secondItem="dT4-Ux-db9" secondAttribute="trailing" id="aFs-CA-CyM"/>
+                                    <constraint firstItem="dT4-Ux-db9" firstAttribute="leading" secondItem="GAv-sj-clW" secondAttribute="leading" id="ejX-IF-pU5"/>
+                                </constraints>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="GAv-sj-clW" firstAttribute="top" secondItem="nKK-Rk-Z8K" secondAttribute="top" id="4V0-HL-jfk"/>
+                            <constraint firstItem="nKK-Rk-Z8K" firstAttribute="trailing" secondItem="GAv-sj-clW" secondAttribute="trailing" id="FRT-yq-NH6"/>
+                            <constraint firstItem="GAv-sj-clW" firstAttribute="height" secondItem="t5t-eG-YcU" secondAttribute="height" multiplier="0.67" id="r1E-uk-KMp"/>
+                            <constraint firstItem="GAv-sj-clW" firstAttribute="leading" secondItem="nKK-Rk-Z8K" secondAttribute="leading" id="rKW-Sd-j9I"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="nKK-Rk-Z8K"/>
                     </view>
+                    <connections>
+                        <outlet property="temperatureLabel" destination="dT4-Ux-db9" id="man-Li-jb2"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="6hY-yF-kIv" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="118" y="137"/>
+            <point key="canvasLocation" x="117.59999999999999" y="136.28185907046478"/>
         </scene>
     </scenes>
 </document>

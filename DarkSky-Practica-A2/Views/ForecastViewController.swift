@@ -10,12 +10,16 @@ import UIKit
 
 class ForecastViewController: UIViewController {
     
+    @IBOutlet weak var temperatureLabel: UILabel!
+    
     let weatherService = WeatherSerivce()
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        weatherService.fetchCurrentWeatherForecast {
-            
+        weatherService.fetchCurrentWeatherForecast { currentWeatherForecast in
+            DispatchQueue.main.async {
+                self.temperatureLabel.text = "\(currentWeatherForecast.roundedTemperature)º"
+            }
         }
     }
 
