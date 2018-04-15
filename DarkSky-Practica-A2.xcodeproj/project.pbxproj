@@ -11,6 +11,8 @@
 		3AE132472083DB77004190AD /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3AE132452083DB77004190AD /* Main.storyboard */; };
 		3AE132492083DB77004190AD /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3AE132482083DB77004190AD /* Assets.xcassets */; };
 		3AE1324C2083DB77004190AD /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3AE1324A2083DB77004190AD /* LaunchScreen.storyboard */; };
+		3AE132682083DF2A004190AD /* WeatherService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AE132672083DF2A004190AD /* WeatherService.swift */; };
+		3AE1326B2083E393004190AD /* ForecastViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AE1326A2083E393004190AD /* ForecastViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -32,6 +34,8 @@
 		3AE1324D2083DB77004190AD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		3AE132522083DB77004190AD /* DarkSky-Practica-A2Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "DarkSky-Practica-A2Tests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		3AE132582083DB77004190AD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		3AE132672083DF2A004190AD /* WeatherService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherService.swift; sourceTree = "<group>"; };
+		3AE1326A2083E393004190AD /* ForecastViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForecastViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -73,6 +77,8 @@
 		3AE132402083DB77004190AD /* DarkSky-Practica-A2 */ = {
 			isa = PBXGroup;
 			children = (
+				3AE132692083E36A004190AD /* Views */,
+				3AE132662083DF13004190AD /* Services */,
 				3AE132652083DC0E004190AD /* AppDelegate */,
 				3AE132632083DBB5004190AD /* Storyboards */,
 				3AE132612083DB98004190AD /* Resources */,
@@ -128,6 +134,22 @@
 				3AE132412083DB77004190AD /* AppDelegate.swift */,
 			);
 			path = AppDelegate;
+			sourceTree = "<group>";
+		};
+		3AE132662083DF13004190AD /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				3AE132672083DF2A004190AD /* WeatherService.swift */,
+			);
+			path = Services;
+			sourceTree = "<group>";
+		};
+		3AE132692083E36A004190AD /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				3AE1326A2083E393004190AD /* ForecastViewController.swift */,
+			);
+			path = Views;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -231,7 +253,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3AE132682083DF2A004190AD /* WeatherService.swift in Sources */,
 				3AE132422083DB77004190AD /* AppDelegate.swift in Sources */,
+				3AE1326B2083E393004190AD /* ForecastViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
