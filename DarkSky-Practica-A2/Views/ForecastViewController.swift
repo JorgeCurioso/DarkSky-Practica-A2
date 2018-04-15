@@ -16,10 +16,9 @@ class ForecastViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        weatherService.fetchCurrentWeatherForecast {
+        weatherService.fetchCurrentWeatherForecast { currentWeatherForecast in
             DispatchQueue.main.async {
-
-                
+                self.temperatureLabel.text = "\(currentWeatherForecast.roundedTemperature)º"
             }
         }
     }
