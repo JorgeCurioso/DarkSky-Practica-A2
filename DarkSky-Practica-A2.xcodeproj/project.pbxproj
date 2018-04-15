@@ -15,6 +15,7 @@
 		3AE1326B2083E393004190AD /* ForecastViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AE1326A2083E393004190AD /* ForecastViewController.swift */; };
 		3AE1326E2083E702004190AD /* CurrentWeatherForecast.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AE1326D2083E702004190AD /* CurrentWeatherForecast.swift */; };
 		3AE132702083E718004190AD /* DailyWeatherForecast.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AE1326F2083E718004190AD /* DailyWeatherForecast.swift */; };
+		3AE1327320840965004190AD /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AE1327220840965004190AD /* NetworkManager.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -40,6 +41,7 @@
 		3AE1326A2083E393004190AD /* ForecastViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForecastViewController.swift; sourceTree = "<group>"; };
 		3AE1326D2083E702004190AD /* CurrentWeatherForecast.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrentWeatherForecast.swift; sourceTree = "<group>"; };
 		3AE1326F2083E718004190AD /* DailyWeatherForecast.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DailyWeatherForecast.swift; sourceTree = "<group>"; };
+		3AE1327220840965004190AD /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -81,6 +83,7 @@
 		3AE132402083DB77004190AD /* DarkSky-Practica-A2 */ = {
 			isa = PBXGroup;
 			children = (
+				3AE132712084095B004190AD /* Managers */,
 				3AE1326C2083E6E8004190AD /* Models */,
 				3AE132692083E36A004190AD /* Views */,
 				3AE132662083DF13004190AD /* Services */,
@@ -164,6 +167,14 @@
 				3AE1326F2083E718004190AD /* DailyWeatherForecast.swift */,
 			);
 			path = Models;
+			sourceTree = "<group>";
+		};
+		3AE132712084095B004190AD /* Managers */ = {
+			isa = PBXGroup;
+			children = (
+				3AE1327220840965004190AD /* NetworkManager.swift */,
+			);
+			path = Managers;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -267,6 +278,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3AE1327320840965004190AD /* NetworkManager.swift in Sources */,
 				3AE132682083DF2A004190AD /* WeatherService.swift in Sources */,
 				3AE1326E2083E702004190AD /* CurrentWeatherForecast.swift in Sources */,
 				3AE132422083DB77004190AD /* AppDelegate.swift in Sources */,
