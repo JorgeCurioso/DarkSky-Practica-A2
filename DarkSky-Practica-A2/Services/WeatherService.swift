@@ -36,7 +36,7 @@ class WeatherSerivce {
         return "/forecast/\(darkSkyKey)/\(latitude),\(longitude)"
     }
     
-    func fetchCurrentWeatherForecast(completion: () -> ()) {
+    func fetchCurrentWeatherForecast(completion: @escaping () -> ()) {
         guard let url = darkSkyURL() else {
             print("could not construct url")
             return
@@ -48,9 +48,11 @@ class WeatherSerivce {
                 let weatherInfo = try JSONDecoder().decode(WeatherInfo.self, from: data)
                 let currentForecast = CurrentWeatherForecast(weatherInfo.currently)
                 print("currentForecast: \(currentForecast.temperature)")
+                completion()
             }
             catch {
                 print("could not parse data into models")
+                completion()
             }
         }
     }

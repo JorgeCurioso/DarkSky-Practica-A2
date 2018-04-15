@@ -10,12 +10,17 @@ import UIKit
 
 class ForecastViewController: UIViewController {
     
+    @IBOutlet weak var temperatureLabel: UILabel!
+    
     let weatherService = WeatherSerivce()
 
     override func viewDidLoad() {
         super.viewDidLoad()
         weatherService.fetchCurrentWeatherForecast {
-            
+            DispatchQueue.main.async {
+
+                
+            }
         }
     }
 
