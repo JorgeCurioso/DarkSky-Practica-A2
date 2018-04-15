@@ -16,11 +16,11 @@ private struct WeatherInfo: Codable {
 }
 
 class WeatherSerivce {
-    //gather credentials
-//    https://api.darksky.net/forecast/0123456789abcdef9876543210fedcba/42.3601,-71.0589
+    
     private let latitude = 42.3601
     private let longitude = -71.0589
     private let darkSkyScheme = "https"
+    private let darkSkyKey = ""
     private let darkSkyHost = "api.darksky.net"
     
     private func darkSkyURL() -> URL? {
@@ -43,7 +43,7 @@ class WeatherSerivce {
         }
         
         NetworkManager.getDataFor(url: url) { (data) in
-            //take data and parse into models
+            
             do {
                 let weatherInfo = try JSONDecoder().decode(WeatherInfo.self, from: data)
                 let currentForecast = CurrentWeatherForecast(weatherInfo.currently)
