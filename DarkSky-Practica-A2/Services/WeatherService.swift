@@ -6,6 +6,7 @@
 //  Copyright © 2018 George Royce. All rights reserved.
 //
 
+import CoreLocation
 import Foundation
 
 private struct WeatherInfo: Codable {
@@ -16,34 +17,32 @@ private struct WeatherInfo: Codable {
 }
 
 class WeatherSerivce {
-    
-    private let latitude = 42.3601
-    private let longitude = -71.0589
+
     private let darkSkyScheme = "https"
     private let darkSkyKey = ""
     private let darkSkyHost = "api.darksky.net"
     
-    private func darkSkyURL() -> URL? {
+    private func darkSkyURLFor(coordinate: CLLocationCoordinate2D) -> URL? {
         var components = URLComponents()
         components.scheme = darkSkyScheme
         components.host = darkSkyHost
-        components.path = darkSkyPath()
+        components.path = darkSkyPathFor(coordinate: coordinate)
         
         return components.url
     }
     
-    private func darkSkyPath() -> String {
-        return "/forecast/\(darkSkyKey)/\(latitude),\(longitude)"
+    private func darkSkyPathFor(coordinate: CLLocationCoordinate2D) -> String {
+        return "/forecast/\(darkSkyKey)/\(coordinate.latitude),\(coordinate.longitude)"
     }
     
-    func fetchCurrentWeatherForecast(completion: @escaping (CurrentWeatherForecast) -> ()) {
-        guard let url = darkSkyURL() else {
+    func fetchCurrentWeatherForecastFor(location: CLLocation, completion: @escaping (CurrentWeatherForecast) -> ()) {
+        
+        guard let url = darkSkyURLFor(coordinate: location.coordinate) else {
             print("could not construct url")
             return
         }
         
         NetworkManager.getDataFor(url: url) { (data) in
-            
             do {
                 let weatherInfo = try JSONDecoder().decode(WeatherInfo.self, from: data)
                 let currentForecast = CurrentWeatherForecast(weatherInfo.currently)
